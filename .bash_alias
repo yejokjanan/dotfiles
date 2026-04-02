@@ -1,0 +1,34 @@
+# Cargar nueva configuración BASH
+alias loadconf='source ~/.bashrc'
+
+# ls
+alias ls='eza'
+alias ll='ls -l'
+alias la='ls -al'
+
+# Multiplexores
+alias term='screen tmux && exit'
+
+# Descargas de YouTube
+alias dvideo="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' -o '%(title)s'"
+alias daudio="yt-dlp -x --audio-format mp3 -o '%(title)s'"
+
+# Pacman
+alias pac-install='sudo pacman -Syu --noconfirm'
+alias pac-remove='sudo pacman -Rs'
+alias pac-info='sudo pacman -Si'
+alias pac-view='sudo pacman -Qet | less'
+alias pac-clear='sudo pacman -Scc && sudo pacman -Rs $(pacman -Qtdq)'
+
+# Navegadores
+alias web='w3m'
+alias gemini='amfora'
+
+# Sudo
+alias sudo='sudo-rs'
+alias sudoedit='sudoedit-rs'
+alias visudo='visudo-rs'
+alias su='su-rs'
+
+# Consulta mi ip
+alias myip='curl ifconfig.me && echo "" && ip a | grep inet'
