@@ -1,0 +1,13 @@
+[Unit]
+Description=tmux session
+
+[Service]
+Type=forking
+User=%I
+WorkingDirectory=/home/juan
+ExecStart=/usr/bin/tmux new-session -s 0 -d
+ExecStop=/usr/bin/tmux kill-session -t 0
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
