@@ -1,8 +1,16 @@
+#
+# ~/.bash_alias
+#
+
 # Cargar nueva configuración BASH
 alias loadconf='source ~/.bashrc'
 
+# Papelera
+alias rm='trash'
+
+
 # ls
-alias ls='eza'
+alias ls='eza --icons'
 alias ll='ls -l'
 alias la='ls -al'
 
@@ -14,11 +22,12 @@ alias dvideo="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' -o '%(title)s'"
 alias daudio="yt-dlp -x --audio-format mp3 -o '%(title)s'"
 
 # Pacman
-alias pac-install='sudo pacman -Syu --noconfirm'
-alias pac-remove='sudo pacman -Rs'
-alias pac-info='sudo pacman -Si'
-alias pac-view='sudo pacman -Qet | less'
-alias pac-clear='sudo pacman -Scc && sudo pacman -Rs $(pacman -Qtdq)'
+alias pac-upgrade='pacman -Syu'
+alias pac-install='pacman -Sy'
+alias pac-remove='pacman -Rs'
+alias pac-info='pacman -Si'
+alias pac-view='pacman -Qet | less'
+alias pac-clear='pacman -Scc && pacman -Rs $(pacman -Qtdq)'
 
 # Navegadores
 alias web='w3m'
@@ -30,5 +39,31 @@ alias sudoedit='sudoedit-rs'
 alias visudo='visudo-rs'
 alias su='su-rs'
 
-# Consulta mi ip
+# Consultar IPs
 alias myip='curl ifconfig.me && echo "" && ip a | grep inet'
+
+# CD
+alias ..='cd ..'
+
+# journalctl
+alias boot-list='journalctl --list-boot'
+alias boot-clear='journalctl --vacuum-size=1M'
+alias boot-view='journalctl -b'
+
+# Volumen de audio
+alias vol='pamixer --set-volume'
+
+# Systemctl
+alias en='systemctl enable'
+alias di='systemctl disable'
+alias start='systemctl start'
+alias stop='systemctl stop'
+alias status='systemctl status'
+alias reload='systemctl reload'
+alias sys-reload='systemctl daemon-reload'
+
+# Unidades de red
+alias cloud='sshfs -o allow_other -o follow_symlinks -o reconnect'
+
+# Ocultar aplicaciones
+alias hidden='echo -e "NoDisplay=true\nHidden=true" >>'
